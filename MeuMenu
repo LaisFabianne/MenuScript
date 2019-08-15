@@ -1,0 +1,91 @@
+#!/bin/bash
+ 
+diretoriosMenu() {
+
+clear
+
+echo "1.Listar Diretório"
+echo "2.Criar Diretório"
+echo "3.Remove Diretório"
+echo "4.Criar Arquivo"
+echo "5.Remover Arquivo"
+echo "6.Sair"
+
+echo "Digite a opção escolhida: "
+read opcao
+
+case $opcao in
+
+1)listarDiretorio;;
+2)criarDiretorio;;
+3)removerDiretorio;;
+4)criarArquivo;;
+5)removerArquivo;;
+6)echo "Saindo"; sleep 3; clear exit;;
+*)echo "Opção invalida!";;
+
+esac
+
+}
+
+listarDiretorio() {
+
+	echo "Listando o diretorio"
+	echo "Listando..."
+	ls 
+	echo "Tecle Enter para voltar ao menu."
+	read 
+	diretoriosMenu
+
+}
+
+criarDiretorio(){
+
+	echo "Criando o diretorio"
+	echo "Digite qual diretorio: "
+	read opcao
+	mkdir $opcao
+
+	sleep 5
+	diretoriosMenu
+
+}
+
+removerDiretorio(){
+
+	echo "Removendo o diretorio"
+	echo "Digite qual diretorio: "
+	read opcao
+	rm -r $opcao
+
+	sleep 5
+	diretoriosMenu
+
+}
+
+criarArquivo(){
+
+	echo "Criando arquivos no diretorio"
+	echo "Digite o arquivo: "
+	read opcao
+	> $opcao
+
+	sleep 5
+	diretoriosMenu	
+
+}
+
+removerArquivo(){
+
+	echo "Removendo arquivo"
+	echo "Digite o arquivo: "
+	read opcao
+	rm -r $opcao
+
+	sleep 5
+	diretoriosMenu
+
+}
+
+diretoriosMenu
+
